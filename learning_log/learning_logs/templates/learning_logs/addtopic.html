@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Добавить новую тему</h1>
+    <form method='POST'>
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить тему</button>
+    </form>
+</div>
+{% endblock content %}
+
+
+
+
+<h1>Добавление темы</h1>
+<form action="" method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit' class="btn btn-primary">Создать</button>
+</form>

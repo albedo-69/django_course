@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+
+
+{% block content%}
+<div class="container mt-5">
+    <h1 class="mb-4">Темы</h1>
+    <a href='{% url 'learning_logs:addtopic' %}' class='btn btn-success mb-4'>Добавить тему</a>
+    <div class="row">
+        {% for topic in topics %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ topic }}</h5>
+                    <a href='{% url 'learning_logs:topic' topic.id %}' class="btn btn-primary">Подробнее</a>
+                    <a href='{% url 'learning_logs:edittopic' topic.id %}' class='btn btn-success ml-2px'>Изменить название</a>
+                    <a href='{% url 'learning_logs:deltopic' topic.id %}' class="btn btn-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="px-4 py-5 my-5 text-center">
+            <h1 class="display-5 fw-bold text-body-emphasis">Тем пока нет</h1>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">Добавьте их, нажав на кнопку "Добавить тему"</p>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content%}
+
+
+<a href='{% url 'learning_logs:addentry' %}' class='btn btn-primary'>Добавить запись в тему</a>
+<ul>
+    {% for topic in topics %}
+    <li><a href=>{{ topic }}</a></li>
+    {% empty %}
+    <p>Тем пока нет</p>
+    {% endfor %}
+</ul>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="mb-4">Тема: {{ topic }}</h1>
+    <a href='{% url 'learning_logs:addentry' topic.id %}' class='btn btn-success mb-4'>Добавить запись</a>
+    <div class="list-group">
+        {% for entry in entries %}
+        <p class="list-group-item">{{ entry }}</p>
+        {% empty%} 
+        <div class="px-4 py-5 my-5 text-center">
+            <h1 class="display-5 fw-bold text-body-emphasis">Записей пока нет</h1>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">Добавьте их, нажав на кнопку "Добавить запись"</p>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+{%endblock content%}
+

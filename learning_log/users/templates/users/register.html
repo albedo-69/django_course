@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card p-4 mb-5" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4">Регистрация</h2>
+        <form method='POST'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary w-100">Регистрация</button>
+        </form>
+    </div>
+</div>
+{% endblock content %} 
